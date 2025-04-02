@@ -1,20 +1,16 @@
 package com.herlyn.employees.controllers;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
 import com.herlyn.employees.models.Employees;
+import com.herlyn.employees.services.EmployeeServices;
 
 @RestController
 public class EmployeesController {
-    private static final List<Employees> employees = new ArrayList<>();
-
-    static {
-        employees.add(new Employees(1L,"Herlyn","Castillo","Desarrollador Junior"));
-        employees.add(new Employees(2L,"Helver","Castillo","Prestamista"));
-        employees.add(new Employees(3L,"Elkin","Castillo","Maestro de obra"));
-    }
+   EmployeeServices service = new EmployeeServices();
 
     @GetMapping("/")    
     public String home(){
@@ -22,11 +18,11 @@ public class EmployeesController {
     }
 
     @GetMapping("/employee")
-    public List<Employees> listEmployees() {
-        return employees;
-    }    
+    public List<Employees> getAllEmp() {
+        return service.listEmployees();
+    } 
     @GetMapping("/employee/{id}")
-    public Employees employeeById(@PathVariable Long id) {
-        return employees.stream().filter(e -> e.getId().equals(id)).findFirst().orElse(null);
+    public Employees getEmpId(@PathVariable Long id) {
+        return service.employeeById(id);
     }    
 }

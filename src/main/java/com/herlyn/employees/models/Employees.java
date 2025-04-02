@@ -4,16 +4,18 @@ public class Employees {
     private Long id;
     private String name;
     private String lastname;
-    private String position;  
+    private String position;
+    private double salario;  
 
     public Employees() {
     }
 
-    public Employees(Long id, String name, String lastname, String position) {
+    public Employees(Long id, String name, String lastname, String position, double salario) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
         this.position = position;
+        this.salario = salario;
     }
 
     public Long getId() {
@@ -46,5 +48,13 @@ public class Employees {
 
     public void setPosition(String position) {
         this.position = position;
+    }
+
+    public double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(double salario) {
+        this.salario = salario;
     }    
 }

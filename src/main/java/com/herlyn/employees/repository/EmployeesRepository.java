@@ -10,9 +10,9 @@ public class EmployeesRepository {
 
     public EmployeesRepository(){
         this.data = Arrays.asList(
-            new Employees(1L,"Herlyn","Castillo","Desarrollador Junior"),
-            new Employees(2L,"Helver","Castillo","Prestamista"),
-            new Employees(3L,"Elkin","Castillo","Maestro de obra")
+            new Employees(1L,"Herlyn","Castillo","Desarrollador Junior", 200),
+            new Employees(2L,"Helver","Castillo","Prestamista", 150),
+            new Employees(3L,"Elkin","Castillo","Maestro de obra", 100)
             );
     }
 
