@@ -1,6 +1,6 @@
 package com.herlyn.employees.models;
 
-public class Employees {
+public class Employees implements Cloneable{
     private Long id;
     private String name;
     private String lastname;
@@ -56,5 +56,14 @@ public class Employees {
 
     public void setSalario(double salario) {
         this.salario = salario;
+    }
+
+    @Override
+    public Object clone() {
+        try {
+            return super.clone();
+        } catch (CloneNotSupportedException e) {
+            return new Employees(id,name, lastname,position,salario); // Tambien se puede colocar los metodos get
+        }
     }    
 }

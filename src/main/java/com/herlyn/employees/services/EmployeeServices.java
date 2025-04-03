@@ -14,7 +14,8 @@ public class EmployeeServices {
     public List<Employees> listEmployees() {
         return repository.findAll().stream().map(emp->{
             Double salaryBonus = emp.getSalario()*1.30;
-            Employees employees = new Employees(emp.getId(),emp.getName(),emp.getLastname(),emp.getPosition(),salaryBonus);
+            Employees employees = (Employees) emp.clone();
+            employees.setSalario(salaryBonus);
             return employees;
         }).collect(Collectors.toList());
     }    
