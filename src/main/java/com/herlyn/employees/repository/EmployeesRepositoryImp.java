@@ -4,11 +4,11 @@ import java.util.*;
 
 import com.herlyn.employees.models.Employees;
 
-public class EmployeesRepository {
+public class EmployeesRepositoryImp implements EmployeeRepository {
 
     private List<Employees> data;
 
-    public EmployeesRepository(){
+    public EmployeesRepositoryImp(){
         this.data = Arrays.asList(
             new Employees(1L,"Herlyn","Castillo","Desarrollador Junior", 200),
             new Employees(2L,"Helver","Castillo","Prestamista", 150),
@@ -16,10 +16,12 @@ public class EmployeesRepository {
             );
     }
 
+    @Override
     public List<Employees> findAll(){
         return data;
     }
-
+    
+    @Override
     public Employees getById(Long id){
         return data.stream().filter(p->p.getId().equals(id)).findFirst().orElse(null);
     }

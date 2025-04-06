@@ -6,11 +6,11 @@ import java.util.List;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import com.herlyn.employees.models.Employees;
-import com.herlyn.employees.services.EmployeeServices;
+import com.herlyn.employees.services.EmployeeServicesImp;
 
 @RestController
 public class EmployeesController {
-   EmployeeServices service = new EmployeeServices();
+   EmployeeServicesImp service = new EmployeeServicesImp();
 
     @GetMapping("/")    
     public String home(){
