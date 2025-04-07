@@ -2,11 +2,11 @@ package com.herlyn.employees.repository;
 
 import java.util.*;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.herlyn.employees.models.Employees;
 
-@Component
+@Repository
 public class EmployeesRepositoryImp implements EmployeeRepository {
 
     private List<Employees> data;

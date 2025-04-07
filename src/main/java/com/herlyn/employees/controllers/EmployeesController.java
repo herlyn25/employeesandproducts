@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import com.herlyn.employees.models.Employees;
-import com.herlyn.employees.services.EmployeeServicesImp;
+import com.herlyn.employees.services.EmployeeService;
 
 @RestController
 @RequestMapping("/api")
 public class EmployeesController {
    @Autowired
-   EmployeeServicesImp service;
+   EmployeeService service;
 
     @GetMapping("/")    
     public String home(){
