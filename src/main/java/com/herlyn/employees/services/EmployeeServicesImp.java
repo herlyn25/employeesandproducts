@@ -3,7 +3,7 @@ package com.herlyn.employees.services;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -13,9 +13,14 @@ import com.herlyn.employees.repository.EmployeeRepository;
 @Service
 public class EmployeeServicesImp implements EmployeeService{
   
-  @Autowired
-  private EmployeeRepository repository;
-    
+
+ private EmployeeRepository repository;  
+
+ 
+  public EmployeeServicesImp(@Qualifier("foo") EmployeeRepository repository) {
+    this.repository=repository;
+}
+
   @Override
     public List<Employees> listEmployees() {
         return repository.findAll().stream().map(emp->{

@@ -2,11 +2,13 @@ package com.herlyn.employees.repository;
 
 import java.util.*;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
 import com.herlyn.employees.models.Employees;
 
-@Repository
+@Primary
+@Repository("main")
 public class EmployeesRepositoryImp implements EmployeeRepository {
 
     private List<Employees> data;
