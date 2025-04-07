@@ -3,14 +3,17 @@ package com.herlyn.employees.controllers;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import com.herlyn.employees.models.Employees;
 import com.herlyn.employees.services.EmployeeServicesImp;
 
 @RestController
+@RequestMapping("/api")
 public class EmployeesController {
-   EmployeeServicesImp service = new EmployeeServicesImp();
+   @Autowired
+   EmployeeServicesImp service;
 
     @GetMapping("/")    
     public String home(){

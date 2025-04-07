@@ -3,13 +3,18 @@ package com.herlyn.employees.services;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.herlyn.employees.models.Employees;
 import com.herlyn.employees.repository.EmployeesRepositoryImp;
 
+@Component
 public class EmployeeServicesImp implements EmployeeService{
-  EmployeesRepositoryImp repository = new EmployeesRepositoryImp();
+  
+  @Autowired
+  private EmployeesRepositoryImp repository;
     
   @Override
     public List<Employees> listEmployees() {

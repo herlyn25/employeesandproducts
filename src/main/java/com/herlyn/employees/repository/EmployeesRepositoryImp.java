@@ -2,8 +2,11 @@ package com.herlyn.employees.repository;
 
 import java.util.*;
 
+import org.springframework.stereotype.Component;
+
 import com.herlyn.employees.models.Employees;
 
+@Component
 public class EmployeesRepositoryImp implements EmployeeRepository {
 
     private List<Employees> data;
@@ -20,7 +23,7 @@ public class EmployeesRepositoryImp implements EmployeeRepository {
     public List<Employees> findAll(){
         return data;
     }
-    
+
     @Override
     public Employees getById(Long id){
         return data.stream().filter(p->p.getId().equals(id)).findFirst().orElse(null);
